@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mãe Titine, Eu Te Amo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+      overflow: hidden;
+      text-align: center;
+      color: #b30059;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+    }
+
+    .emoji {
+      font-size: 1.2em;
+      color: red;
+    }
+
+    #questBox {
+      background: #fff;
+      margin: 30px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      font-size: 1.3em;
+      min-height: 100px;
+    }
+
+    button {
+      background: #ff66b2;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #cc0066;
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 2em;
+      animation: floatUp 5s linear infinite;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Mãe Titine, eu te amo <span class="emoji">❤️</span></h1>
+  <div id="questBox">Clique no botão abaixo para ver uma mensagem especial!</div>
+  <button onclick="novaMensagem()">Nova Mensagem</button>
+
+  <script>
+    const mensagens = [
+      "Você é meu mundo, mãe.",
+      "Te amo além das palavras!",
+      "Obrigado por cada abraço e cada sorriso.",
+      "Você é a luz da minha vida.",
+      "Tudo o que faço tem um pouco de você.",
+      "Seu amor é meu superpoder.",
+      "Sempre vou te proteger como você me protegeu.",
+      "Você é a razão da minha força.",
+      "Mãe, seu amor é eterno no meu coração.",
+      "Amor de mãe é o combustível que move minha alma."
+    ];
+
+    function novaMensagem() {
+      const sorteada = mensagens[Math.floor(Math.random() * mensagens.length)];
+      document.getElementById("questBox").textContent = sorteada;
+    }
+
+    // Animações voando: corações, beijos e abraços
+    const elementosVoadores = ['💖', '😘', '🤗', '❤️', '💕', '💋'];
+
+    function criarElementoVoando() {
+      const el = document.createElement('div');
+      el.classList.add('floating');
+      el.textContent = elementosVoadores[Math.floor(Math.random() * elementosVoadores.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      document.body.appendChild(el);
+
+      // Remover depois da animação
+      setTimeout(() => {
+        document.body.removeChild(el);
+      }, 6000);
+    }
+
+    // Criar vários elementos voando em intervalos
+    setInterval(criarElementoVoando, 500);
+  </script>
+</body>
+</html>
